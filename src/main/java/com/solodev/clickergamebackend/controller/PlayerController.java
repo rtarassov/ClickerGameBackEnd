@@ -26,4 +26,9 @@ public class PlayerController {
     public PlayerModel findPlayerByToken(@RequestHeader(value = "Token") String tokenValue) {
         return playerService.findPlayerByToken(tokenValue);
     }
+
+    @PostMapping("/savePlayer")
+    public void savePlayerDataToDatabase(PlayerModel playerModel) {
+        playerService.saveEmployeeToDatabase(playerModel);
+    }
 }
