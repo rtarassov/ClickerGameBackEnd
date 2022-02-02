@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/player")
 public class PlayerController {
 
-    private PlayerService playerService;
+    private final PlayerService playerService;
 
     public PlayerController(PlayerService playerService) {
         this.playerService = playerService;
@@ -24,7 +24,7 @@ public class PlayerController {
     }
 
     @GetMapping("/findplayerbytoken")
-    public PlayerModel findPlayerByToken(@RequestHeader(value = "Token") String tokenValue) {
+    public PlayerModel findPlayerByToken(@RequestHeader(value = "token") String tokenValue) {
         return playerService.findPlayerByToken(tokenValue);
     }
 }

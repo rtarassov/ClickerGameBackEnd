@@ -1,8 +1,9 @@
 package com.solodev.clickergamebackend.model;
 
 
-public record EggBoosterModel(Integer id,
+public record EggBoosterModel(Long id,
                               String name,
                               Double boostMultiplier,
-                              Double costToBuild) {
+                              Long costToBuild,
+                              Long count) {
 }

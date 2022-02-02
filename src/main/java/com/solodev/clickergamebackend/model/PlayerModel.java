@@ -10,11 +10,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayerModel {
-    private Integer id;
+    private Long id;
     private String name;
-    private Integer eggsClicked;
-    private Double totalEggsProduced;
-    private Double eggsInStorage;
+    private Long eggsClicked;
+    private Long totalEggsProduced;
+    private Long eggsInStorage;
     private List<EggBoosterModel> eggBoostersObtained;
     private String playerToken;
 }
