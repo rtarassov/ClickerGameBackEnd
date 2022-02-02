@@ -10,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayerModel {
+    private Integer id;
     private String name;
     private Integer eggsClicked;
     private Double totalEggsProduced;
