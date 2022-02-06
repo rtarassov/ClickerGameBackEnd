@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "de.schablinski.activejdbc-gradle-plugin" version "2.0.1"
 }
 
 group = 'com.soloDev'
@@ -22,9 +23,15 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 
-    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
 
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.6.2'
+
+    // https://mvnrepository.com/artifact/org.javalite/activejdbc
+    implementation group: 'org.javalite', name: 'activejdbc', version: '3.0-j11'
+
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 }
 
 tasks.named('test') {

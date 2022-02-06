@@ -1,20 +1,35 @@
 package com.solodev.clickergamebackend.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Table;
 
 import java.util.List;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class PlayerModel {
-    private Long id;
-    private String name;
-    private Long eggsClicked;
-    private Long totalEggsProduced;
-    private Long eggsInStorage;
-    private List<EggBoosterModel> eggBoostersObtained;
-    private String playerToken;
+@Table("player")
+public class PlayerModel extends Model {
+
+    public Object getId() {
+        return get("id");
+    }
+
+    public String getName() {
+        return getString("name");
+    }
+
+    public Long getEggsClicked() {
+        return getLong("eggsClicked");
+    }
+
+    public Long getTotalEggsProduced() {
+        return getLong("totalEggsProduced");
+    }
+
+    public Long getEggsInStorage() {
+        return getLong("eggsInStorage");
+    }
+
+    public String getPlayerToken() {
+        return getString("player_token");
+    }
 }

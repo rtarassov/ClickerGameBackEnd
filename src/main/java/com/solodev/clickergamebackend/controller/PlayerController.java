@@ -1,9 +1,10 @@
 package com.solodev.clickergamebackend.controller;
 
-import com.solodev.clickergamebackend.model.PlayerModel;
+import com.solodev.clickergamebackend.dto.PlayerDTO;
 import com.solodev.clickergamebackend.model.Token;
 import com.solodev.clickergamebackend.service.PlayerService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -23,8 +24,16 @@ public class PlayerController {
         return playerService.generateRandomToken();
     }
 
-    @GetMapping("/findplayerbytoken")
-    public PlayerModel findPlayerByToken(@RequestHeader(value = "token") String tokenValue) {
+    @GetMapping("/token")
+    public PlayerDTO findPlayerByToken(@RequestHeader(value = "token") String tokenValue) {
         return playerService.findPlayerByToken(tokenValue);
+    }
+
+    @PutMapping("/deliver")
+    public ResponseEntity<Void> deliverEggsToStorage(@RequestHeader(value = "token") String tokenValue,
+                                                     @RequestParam Long amount) {
+        playerService.deliverEggsToStorage(amount, tokenValue);
+
+        return ResponseEntity.ok().build();
     }
 }
