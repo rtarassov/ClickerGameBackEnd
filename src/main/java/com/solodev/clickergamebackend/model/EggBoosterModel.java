@@ -1,25 +1,23 @@
 package com.solodev.clickergamebackend.model;
 
-import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.Table;
+import jakarta.persistence.*;
+import lombok.Data;
 
-@Table("egg_booster")
-public class EggBoosterModel extends Model {
+@Data
+@Entity
+@Table(name = "egg_booster")
+public class EggBoosterModel {
 
-    public Object getId() {
-        return get("id");
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public String getName() {
-        return getString("name");
-    }
+    @Column(name = "name")
+    private String name;
 
-    public Double getBoostMultiplier() {
-        return getDouble("boostMultiplier");
-    }
+    @Column(name = "boostMultiplier")
+    private Double boostMultiplier;
 
-    public Long getCostToBuild() {
-        return getLong("cost");
-    }
-
+    @Column(name = "cost")
+    private Long costToBuild;
 }

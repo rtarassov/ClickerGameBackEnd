@@ -9,7 +9,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PlayerDTO {
 
-    private Object id;
+    private Long id;
     private String name;
     private Long eggsClicked;
     private Long totalEggsProduced;

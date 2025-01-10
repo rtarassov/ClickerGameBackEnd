@@ -1,35 +1,30 @@
 package com.solodev.clickergamebackend.model;
 
 import lombok.Data;
-import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.Table;
 
-import java.util.List;
+import jakarta.persistence.*;
 
-@Table("player")
-public class PlayerModel extends Model {
+@Data
+@Entity
+@Table(name = "player")
+public class PlayerModel {
 
-    public Object getId() {
-        return get("id");
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public String getName() {
-        return getString("name");
-    }
+    @Column(name = "name")
+    private String name;
 
-    public Long getEggsClicked() {
-        return getLong("eggsClicked");
-    }
+    @Column(name = "eggsClicked")
+    private Long eggsClicked;
 
-    public Long getTotalEggsProduced() {
-        return getLong("totalEggsProduced");
-    }
+    @Column(name = "totalEggsProduced")
+    private Long totalEggsProduced;
 
-    public Long getEggsInStorage() {
-        return getLong("eggsInStorage");
-    }
+    @Column(name = "eggsInStorage")
+    private Long eggsInStorage;
 
-    public String getPlayerToken() {
-        return getString("player_token");
-    }
+    @Column(name = "player_token")
+    private String playerToken;
 }
