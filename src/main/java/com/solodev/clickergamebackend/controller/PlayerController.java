@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/") //TODO: Remove this line when I don't host on my own computer anymore.
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("/player")
 @RequiredArgsConstructor
 public class PlayerController {
@@ -27,10 +27,10 @@ public class PlayerController {
     }
 
     @PutMapping("/deliver")
-    public ResponseEntity<Void> deliverEggsToStorage(@RequestHeader(value = "token") String tokenValue,
+    public ResponseEntity<PlayerDTO> deliverEggsToStorage(@RequestHeader(value = "token") String tokenValue,
                                                      @RequestParam Long amount) {
-        playerService.deliverEggsToStorage(amount, tokenValue);
+        PlayerDTO playerDTO = playerService.deliverEggsToStorage(amount, tokenValue);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(playerDTO);
     }
 }

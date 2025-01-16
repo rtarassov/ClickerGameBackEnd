@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface PlayerRepository extends JpaRepository<PlayerModel, Long> {
 
     PlayerModel findByPlayerToken(String playerToken);
+
+
 }
